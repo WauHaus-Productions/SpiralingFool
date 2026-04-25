@@ -40,7 +40,7 @@ func _process(delta: float) -> void:
 	if player != null:
 		if hurtbox.overlaps_body(player):
 			player.take_damage(collision_dmg_per_second*delta)
-		
+
 func take_damage(damage) -> void:
 	if (is_dead): return
 	
@@ -55,3 +55,6 @@ func take_damage(damage) -> void:
 func cleanup():
 	player = null
 	speed = 0
+
+func on_arena_enter_tween_finish():
+	pass

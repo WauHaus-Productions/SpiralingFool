@@ -35,12 +35,15 @@ func _ready() -> void:
 	state_changed.connect(switch_animation)
 	animator.animation_finished.connect(on_animation_finished)
 	
-	# Start in IDLE state and start transition to PURSUIT state
+	# Start in IDLE state and wait for arena enter tween
 	state = StateEnum.IDLE
-	timer.start(recharge_time)
 	
 	# Activate death animation
 	boss_dead.connect(death_animation)
+
+func on_arena_enter_tween_finish():
+	# When the arena has been entered, start pursuit
+	change_state()
 
 func _process(delta: float) -> void:
 	if player != null and hurtbox.overlaps_body(player):
@@ -90,7 +93,8 @@ func death_animation():
 	animator.play("death")
 
 func on_animation_finished():
-	if (is_dead): return
+	if (is_dead): 
+		return
 	
 	# Launch the loop of the run and attack_charge animations
 	if (state == StateEnum.PURSUIT):

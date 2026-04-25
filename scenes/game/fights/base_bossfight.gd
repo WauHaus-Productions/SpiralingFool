@@ -35,6 +35,7 @@ func create_bounce_tween():
 	# Tween the position
 	tween.tween_property(player, "position", $PlayerEnterPosition.position, enter_transition_duration).set_trans(Tween.TRANS_EXPO).set_ease(Tween.EASE_OUT)
 	tween.tween_property(boss, "position", $BossEnterPosition.position, enter_transition_duration).set_trans(Tween.TRANS_EXPO).set_ease(Tween.EASE_OUT)
+	tween.finished.connect(boss.on_arena_enter_tween_finish)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:

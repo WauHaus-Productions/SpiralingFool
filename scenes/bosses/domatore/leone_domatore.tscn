@@ -361,22 +361,22 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_pcd6q"]
-radius = 13.0
+radius = 11.0
 height = 56.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_gnsm5"]
-radius = 14.0
-height = 60.0
+radius = 12.0
+height = 58.0
 
 [node name="LeoneDomatore" type="CharacterBody2D" unique_id=1910195229 groups=["Boss"]]
 collision_layer = 2
 collision_mask = 4
-motion_mode = 1
 script = ExtResource("1_21rpb")
 pursuit_time = 2.5
 attack_charge_time = 0.8
 recharge_time = 1.0
 attack_speed = 250.0
+attack_damage = 150.0
 speed = 80.0
 initial_hp = 3000.0
 collision_dmg_per_second = 100.0
