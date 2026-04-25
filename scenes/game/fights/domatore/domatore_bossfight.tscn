@@ -7,11 +7,12 @@
 enter_transition_duration = 2.0
 
 [node name="Boss" parent="." index="1" unique_id=1910195229 node_paths=PackedStringArray("player") instance=ExtResource("2_wyqr6")]
-position = Vector2(488, 293)
+position = Vector2(574, 282)
 player = NodePath("../Player")
 
 [node name="Player" parent="." index="2"]
 position = Vector2(-7, 310)
+SPEED = 200.0
 
 [node name="PlayerEnterPosition" type="Marker2D" parent="." index="5" unique_id=1591738571]
 position = Vector2(150, 135)

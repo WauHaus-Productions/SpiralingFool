@@ -1,8 +1,8 @@
-[gd_scene load_steps=16 format=3 uid="uid://dn82qtyb5sjxk"]
+[gd_scene format=3 uid="uid://dn82qtyb5sjxk"]
 
-[ext_resource type="Script" path="res://scenes/player/player.gd" id="1_iqo1o"]
+[ext_resource type="Script" uid="uid://cjnypl78dcjqu" path="res://scenes/player/player.gd" id="1_iqo1o"]
 [ext_resource type="Texture2D" uid="uid://c3usfowlc3in" path="res://asset/graphic/MC Anim-Sheet.png" id="2_wku6e"]
-[ext_resource type="Script" path="res://scenes/player/sounds.gd" id="3_6rq4q"]
+[ext_resource type="Script" uid="uid://3etif5hgs0sh" path="res://scenes/player/sounds.gd" id="3_6rq4q"]
 [ext_resource type="AudioStream" uid="uid://daohktsf32qrs" path="res://asset/sfx/player/footsteps/footstep5.wav" id="3_e3n83"]
 [ext_resource type="Resource" uid="uid://yjnevhy004ah" path="res://scenes/player/player_sounds.tres" id="5_0fjq6"]
 
@@ -79,23 +79,23 @@ animations = [{
 radius = 5.0
 height = 34.0
 
-[node name="Player" type="CharacterBody2D" groups=["Player"]]
+[node name="Player" type="CharacterBody2D" unique_id=587361776 groups=["Player"]]
 position = Vector2(1, 0)
 collision_mask = 14
 script = ExtResource("1_iqo1o")
 initial_hp = 1000.0
-SPEED = 500.0
+SPEED = 150.0
 
-[node name="Animations" type="AnimatedSprite2D" parent="."]
+[node name="Animations" type="AnimatedSprite2D" parent="." unique_id=2144781244]
 position = Vector2(-3, -9)
 sprite_frames = SubResource("SpriteFrames_5jcw2")
 animation = &"walk"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1603030145]
 position = Vector2(-2, -2)
 shape = SubResource("CapsuleShape2D_juipm")
 
-[node name="Sounds" type="AudioStreamPlayer2D" parent="." groups=["Player"]]
+[node name="Sounds" type="AudioStreamPlayer2D" parent="." unique_id=1907456881 groups=["Player"]]
 stream = ExtResource("3_e3n83")
 volume_db = -10.0
 bus = &"Player"

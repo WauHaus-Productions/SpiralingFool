@@ -204,7 +204,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"attack_charge_loop",
-"speed": 10.0
+"speed": 15.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -215,7 +215,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"attack_charge_start",
-"speed": 10.0
+"speed": 15.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -253,7 +253,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"attack_jump",
-"speed": 10.0
+"speed": 15.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -276,7 +276,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"death",
-"speed": 10.0
+"speed": 15.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -299,7 +299,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"idle",
-"speed": 10.0
+"speed": 15.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -328,7 +328,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"run_loop",
-"speed": 10.0
+"speed": 15.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -357,15 +357,15 @@ animations = [{
 }],
 "loop": false,
 "name": &"run_start",
-"speed": 10.0
+"speed": 15.0
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_pcd6q"]
-radius = 15.0
+radius = 13.0
 height = 56.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_gnsm5"]
-radius = 17.0
+radius = 14.0
 height = 60.0
 
 [node name="LeoneDomatore" type="CharacterBody2D" unique_id=1910195229 groups=["Boss"]]
@@ -373,22 +373,23 @@ collision_layer = 2
 collision_mask = 4
 motion_mode = 1
 script = ExtResource("1_21rpb")
-attack_speed = 200.0
-speed = 65.0
+pursuit_time = 2.5
+attack_charge_time = 0.8
+recharge_time = 1.0
+attack_speed = 250.0
+speed = 80.0
 initial_hp = 3000.0
 collision_dmg_per_second = 100.0
 metadata/_custom_type_script = "uid://bqkn6b2y4pgdd"
 
 [node name="Animations" type="AnimatedSprite2D" parent="." unique_id=812304389]
 sprite_frames = SubResource("SpriteFrames_fqdnt")
-animation = &"death"
+animation = &"idle"
 autoplay = "idle"
-frame = 5
-frame_progress = 1.0
 flip_h = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1588107857]
-position = Vector2(0, 9)
+position = Vector2(0, 10)
 rotation = 1.5707964
 shape = SubResource("CapsuleShape2D_pcd6q")
 
@@ -396,7 +397,7 @@ shape = SubResource("CapsuleShape2D_pcd6q")
 collision_layer = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox" unique_id=99867029]
-position = Vector2(0, 9)
+position = Vector2(0, 10)
 rotation = 1.5707964
 shape = SubResource("CapsuleShape2D_gnsm5")
 debug_color = Color(0.96320516, 1.92523e-07, 0.50291693, 0.41960785)

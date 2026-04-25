@@ -14,7 +14,6 @@ extends BossBase
 
 var vision_player: Player = null
 var is_stomping: bool = false
-var is_dead = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

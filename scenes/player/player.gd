@@ -37,10 +37,12 @@ func take_damage(dmg_amount: float) -> float:
 	emit_signal("player_damaged", dmg_amount)
 	if !dead:
 		audio.play_sound("TAKE_DMG")
-	var tween = get_tree().create_tween()
-	# Fade to 0.5 alpha
-	tween.tween_property($Animations, "modulate:v", 1, 0.1).from(15)
-	#tween.tween_property($Animations, "modulate", Color.WHITE, 0.1).from(Color.CRIMSON)
+	
+	if (dmg_amount > 0):
+		var tween = get_tree().create_tween()
+		# Fade to 0.5 alpha
+		tween.tween_property($Animations, "modulate:v", 1, 0.1).from(15)
+		#tween.tween_property($Animations, "modulate", Color.WHITE, 0.1).from(Color.CRIMSON)
 	
 	if current_hp < 0:
 		player_dead.emit()

@@ -55,14 +55,18 @@ func _process(delta: float) -> void:
 func _physics_process(delta: float) -> void:
 	if (player == null): return
 	
+	var dir_to_player : Vector2 = player.global_position - global_position
+	dir_to_player = dir_to_player.normalized()
+	
 	if (state == StateEnum.PURSUIT):
 		# Move towards player
-		var dir_to_player : Vector2 = player.global_position - global_position
-		dir_to_player = dir_to_player.normalized()
 		move_to(dir_to_player, speed)
 	elif (state == StateEnum.ATTACK):
 		# Jump towards player
 		move_to(attack_direction, attack_speed)
+	elif (state == StateEnum.CHARGE):
+		# Flip the animation to match where it will jump
+		animator.flip_h = dir_to_player.x < 0
 
 func move_to(direction: Vector2, move_speed: float) -> void:
 	# Flip animation based on movement
