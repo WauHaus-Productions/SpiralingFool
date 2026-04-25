@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=23 format=3 uid="uid://dq3fh7pdv4230"]
+[gd_resource type="Theme" format=3 uid="uid://dq3fh7pdv4230"]
 
 [ext_resource type="FontFile" uid="uid://dake8jnvwlbv2" path="res://asset/graphic/UI/font/tuscan-mf-font/TuscanMfNarrow-GKnP.ttf" id="1_47lgb"]
 [ext_resource type="Texture2D" uid="uid://cnx5r0vm0w12w" path="res://asset/graphic/UI/bottone.png" id="2_miug5"]
@@ -55,7 +55,7 @@ region_rect = Rect2(0, 0, 160, 64)
 bg_color = Color(0.494118, 0.419608, 0.494118, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fycgq"]
-bg_color = Color(0.764706, 0.764706, 0.764706, 1)
+bg_color = Color(0.49411765, 0.41960785, 0.49411765, 1)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_5dt3x"]
 texture_margin_left = 6.0
