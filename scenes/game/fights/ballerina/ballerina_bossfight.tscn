@@ -1,20 +1,24 @@
-[gd_scene load_steps=3 format=3 uid="uid://dkdj5tv4scmlv"]
+[gd_scene format=3 uid="uid://dkdj5tv4scmlv"]
 
 [ext_resource type="PackedScene" uid="uid://b33rcxtvopwp2" path="res://scenes/game/fights/base_bossfight.tscn" id="1_jlc7g"]
 [ext_resource type="PackedScene" uid="uid://dye77ts0dxhp2" path="res://scenes/bosses/ballerina/ballerina.tscn" id="2_w6bhu"]
 
-[node name="BallerinaBossfight" instance=ExtResource("1_jlc7g")]
+[node name="BallerinaBossfight" unique_id=1168573226 instance=ExtResource("1_jlc7g")]
 
-[node name="Boss" parent="." index="1" node_paths=PackedStringArray("player") instance=ExtResource("2_w6bhu")]
+[node name="Boss" parent="." index="1" unique_id=313489669 node_paths=PackedStringArray("player") instance=ExtResource("2_w6bhu")]
 position = Vector2(550, 303)
 base_velocity = 150.0
+max_vel = 2000.0
+acceleration = 1200
+cerchio_dmg_per_sec = 400.0
 player = NodePath("../Player")
+collision_dmg_per_second = 350.0
 
 [node name="Player" parent="." index="2"]
 position = Vector2(-7, 310)
 
-[node name="PlayerEnterPosition" type="Marker2D" parent="." index="5"]
+[node name="PlayerEnterPosition" type="Marker2D" parent="." index="5" unique_id=1997460423]
 position = Vector2(138, 135)
 
-[node name="BossEnterPosition" type="Marker2D" parent="." index="6"]
+[node name="BossEnterPosition" type="Marker2D" parent="." index="6" unique_id=575120256]
 position = Vector2(341, 136)

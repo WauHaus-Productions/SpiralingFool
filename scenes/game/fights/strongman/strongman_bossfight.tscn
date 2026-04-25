@@ -3,22 +3,22 @@
 [ext_resource type="PackedScene" uid="uid://b33rcxtvopwp2" path="res://scenes/game/fights/base_bossfight.tscn" id="1_yxvtc"]
 [ext_resource type="PackedScene" uid="uid://clxb5qbyks832" path="res://scenes/bosses/strongman/strong_man.tscn" id="2_yobm6"]
 
-[node name="StrongmanBossfight" unique_id=2000722410 instance=ExtResource("1_yxvtc")]
+[node name="StrongmanBossfight" unique_id=1582975862 instance=ExtResource("1_yxvtc")]
 enter_transition_duration = 2.0
 
-[node name="Boss" parent="." index="1" unique_id=1965756528 node_paths=PackedStringArray("target", "player") instance=ExtResource("2_yobm6")]
+[node name="Boss" parent="." index="1" unique_id=2110155597 node_paths=PackedStringArray("target", "player") instance=ExtResource("2_yobm6")]
 position = Vector2(550, 303)
 target = NodePath("../Player")
 player = NodePath("../Player")
-collision_dmg = 5.0
+collision_dmg_per_second = 350.0
 
 [node name="Player" parent="." index="2"]
 position = Vector2(-7, 310)
 
-[node name="PlayerEnterPosition" type="Marker2D" parent="." index="5" unique_id=1952058933]
+[node name="PlayerEnterPosition" type="Marker2D" parent="." index="5" unique_id=50464494]
 position = Vector2(150, 135)
 
-[node name="BossEnterPosition" type="Marker2D" parent="." index="6" unique_id=392189992]
+[node name="BossEnterPosition" type="Marker2D" parent="." index="6" unique_id=1366406911]
 position = Vector2(321, 135)
 
 [editable path="Boss"]

@@ -18,7 +18,7 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	if boss != null:
 		if self.overlaps_body(boss):
-			boss.take_damage(dmg)
+			boss.take_damage(dmg*delta)
 			audio.play_sound("DEAL_DMG")
 
 

@@ -7,7 +7,7 @@ signal boss_dead
 @export var speed: float = 100 
 @export var player: Player 
 @export var initial_hp: float = 1000
-@export var collision_dmg: float
+@export var collision_dmg_per_second: float
 
 @onready var hp: float = initial_hp
 @onready var animations: AnimatedSprite2D = get_node_or_null("Animations")
@@ -37,7 +37,7 @@ func walk_right():
 func _process(delta: float) -> void:
 	if player != null:
 		if hurtbox.overlaps_body(player):
-			player.take_damage(collision_dmg)
+			player.take_damage(collision_dmg_per_second*delta)
 		
 func take_damage(damage) -> void:
 	hp -= damage
