@@ -8,7 +8,6 @@ signal player_dead
 @onready var animations: AnimatedSprite2D = $Animations
 @onready var audio: AudioStreamPlayer2D = $Sounds
 @onready var dash_cd_label: Sprite2D = $DashCDLabel
-@onready var collision_shape_2d: CollisionShape2D = $CollisionShape2D
 
 # Player attributes
 @export var initial_hp: float
@@ -83,71 +82,81 @@ func _physics_process(delta: float) -> void:
 		else:
 			spiral_path = []
 			spiral_time_instant = 0
-	else:
-		var direction_x := Input.get_axis("ui_left", "ui_right")
-		var direction_y := Input.get_axis("ui_up", "ui_down")
+		move_and_slide()
+		external_velocity = Vector2.ZERO
+		return
 
-		if direction_x != 0 or direction_y != 0:
-			last_direction.y = direction_y
-			last_direction.x = direction_x
+	var direction: Vector2
+	direction.x = Input.get_axis("ui_left", "ui_right")
+	direction.y = Input.get_axis("ui_up", "ui_down")
 
-		if until_dash > 0:
-			until_dash -= delta
-		else:
-			dash_cd_label.visible = false
+	compute_dash(direction, delta)
+	compute_walk(direction)
 
-		print("is_dashing ", is_dashing, " , until_dash ", until_dash)
-		if Input.is_action_just_pressed("dash") and not is_dashing and (until_dash <= 0):
-			is_dashing = true
-			dash_timer = DASH_TIME
-			velocity.y = last_direction.y * DASH_SPEED / sqrt(2)
-			velocity.x = last_direction.x * DASH_SPEED / sqrt(2)
-			until_dash = DASH_CD
-			dash_cd_label.visible = true
-			collision_mask = 4
-
-		if is_dashing:
-			dash_timer -= delta
-			animations.play("dash")
-			#audio.play_sound("DASH")
-			moving = true
-
-			if dash_timer <= 0:
-				is_dashing = false
-				velocity.x = 0
-				velocity.y = 0
-				collision_mask = 14
-
-		else:
-			velocity.x = 0
-			velocity.y = 0
-
-			if direction_x != 0 and direction_y == 0:
-				velocity.x = direction_x * SPEED
-				animations.play('walk')
-				moving = true
-				audio.play_sound("STEP")
-			elif direction_y != 0 and direction_x == 0:
-				velocity.y = direction_y * SPEED
-				animations.play('walk')
-				moving = true
-				audio.play_sound("STEP")
-			elif direction_y != 0 and direction_x != 0:
-				velocity.y = direction_y * SPEED / sqrt(2)
-				velocity.x = direction_x * SPEED / sqrt(2)
-				animations.play('walk')
-				moving = true
-				audio.play_sound("STEP")
-			else:
-				animations.play('idle')
-				if moving:
-					audio.play_sound("STOP_MOVING")
-					moving = false
-
-		velocity = velocity + external_velocity
+	velocity = velocity + external_velocity
 
 	move_and_slide()
 	external_velocity = Vector2.ZERO
+
+
+func compute_walk(direction: Vector2) -> void:
+	if is_dashing:
+		return
+
+	velocity.x = 0
+	velocity.y = 0
+
+	if direction.x == 0 and direction.y == 0:
+		animations.play('idle')
+		if moving:
+			audio.play_sound("STOP_MOVING")
+			moving = false
+	else:
+		velocity.x = direction.x * SPEED
+		velocity.y = direction.y * SPEED
+		if direction.x != 0 and direction.y != 0:
+			velocity.y /= sqrt(2)
+			velocity.x /= sqrt(2)
+		animations.play('walk')
+		moving = true
+		audio.play_sound("STEP")
+	return
+
+
+func compute_dash(direction: Vector2, delta: float) -> void:
+	if direction.x != 0 or direction.y != 0:
+		last_direction.y = direction.y
+		last_direction.x = direction.x
+
+	if until_dash > 0:
+		until_dash -= delta
+	else:
+		dash_cd_label.visible = false
+
+	if Input.is_action_just_pressed("dash") and not is_dashing and (until_dash <= 0):
+		is_dashing = true
+		dash_timer = DASH_TIME
+		velocity.y = last_direction.y * DASH_SPEED
+		velocity.x = last_direction.x * DASH_SPEED
+		if direction.x != 0 and direction.y != 0:
+			velocity.y /= sqrt(2)
+			velocity.x /= sqrt(2)
+		until_dash = DASH_CD
+		dash_cd_label.visible = true
+		collision_mask = 4
+
+	if is_dashing:
+		dash_timer -= delta
+		animations.play("dash")
+		#audio.play_sound("DASH")
+		moving = true
+
+		if dash_timer <= 0:
+			is_dashing = false
+			velocity.x = 0
+			velocity.y = 0
+			collision_mask = 14
+	return
 
 
 func compute_spiral_track_position(spiral_start_position: Vector2, spiral_end_position: Vector2, t: float) -> Vector2:

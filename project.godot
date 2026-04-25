@@ -28,8 +28,8 @@ buses/default_bus_layout="res://asset/default_bus_layout.tres"
 
 [display]
 
-window/size/viewport_width=1700
-window/size/viewport_height=700
+window/size/viewport_width=1920
+window/size/viewport_height=1200
 window/size/resizable=false
 window/size/borderless=true
 window/stretch/mode="viewport"
