@@ -1,26 +1,26 @@
-[gd_scene load_steps=7 format=3 uid="uid://c3pep1p4hynqu"]
+[gd_scene format=3 uid="uid://c3pep1p4hynqu"]
 
 [ext_resource type="PackedScene" uid="uid://t6vco26lke6y" path="res://scenes/balls/base_ball.tscn" id="1_hsm24"]
 [ext_resource type="Texture2D" uid="uid://bbpahas4mr50q" path="res://asset/graphic/Palla DA foca.png" id="2_dg8q1"]
 [ext_resource type="AudioStream" uid="uid://bgbi8m00cfrw2" path="res://asset/sfx/player/dealing_damage/8-bit_damage.wav" id="3_n6ho7"]
-[ext_resource type="Script" path="res://scenes/player/sounds.gd" id="3_nlntq"]
+[ext_resource type="Script" uid="uid://3etif5hgs0sh" path="res://scenes/player/sounds.gd" id="3_nlntq"]
 [ext_resource type="Resource" uid="uid://yjnevhy004ah" path="res://scenes/player/player_sounds.tres" id="5_hx4h1"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_q8gx0"]
 radius = 6.0
 
-[node name="RagBall" instance=ExtResource("1_hsm24")]
+[node name="RagBall" unique_id=1023106265 instance=ExtResource("1_hsm24")]
 texture_filter = 1
 collision_mask = 2
-dmg = 5.0
+dmg = 500.0
 
-[node name="RagBallCollision" type="CollisionShape2D" parent="." index="0"]
+[node name="RagBallCollision" type="CollisionShape2D" parent="." index="0" unique_id=963893788]
 shape = SubResource("CircleShape2D_q8gx0")
 
-[node name="RagBallSprite" type="Sprite2D" parent="." index="1"]
+[node name="RagBallSprite" type="Sprite2D" parent="." index="1" unique_id=1178429713]
 texture = ExtResource("2_dg8q1")
 
-[node name="Sounds" type="AudioStreamPlayer2D" parent="." index="2"]
+[node name="Sounds" type="AudioStreamPlayer2D" parent="." index="2" unique_id=1522800281]
 stream = ExtResource("3_n6ho7")
 volume_db = -10.0
 bus = &"Player"

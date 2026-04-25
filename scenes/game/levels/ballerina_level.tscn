@@ -1,10 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://s4it0jrhlunv"]
+[gd_scene format=3 uid="uid://s4it0jrhlunv"]
 
 [ext_resource type="PackedScene" uid="uid://c6yjvbaxt8tb" path="res://scenes/game/game.tscn" id="1_t0psp"]
 [ext_resource type="PackedScene" uid="uid://b5i8bqys1nxic" path="res://scenes/game/levels/double_boss_level.tscn" id="2_8rsxn"]
 [ext_resource type="PackedScene" uid="uid://dkdj5tv4scmlv" path="res://scenes/game/fights/ballerina/ballerina_bossfight.tscn" id="2_kp3bd"]
 
-[node name="BallerinaLevel" instance=ExtResource("1_t0psp")]
+[node name="BallerinaLevel" unique_id=230574158 instance=ExtResource("1_t0psp")]
 scale = Vector2(4, 4)
 win_screen = ExtResource("2_8rsxn")
 transition_duration = 3.0
@@ -12,7 +12,7 @@ transition_duration = 3.0
 [node name="Map" parent="." index="0"]
 visible = false
 
-[node name="BallerinaBossfight" parent="." index="1" instance=ExtResource("2_kp3bd")]
+[node name="BallerinaBossfight" parent="." index="1" unique_id=134909757 instance=ExtResource("2_kp3bd")]
 
 [connection signal="lose" from="BallerinaBossfight" to="." method="_lose"]
 [connection signal="win" from="BallerinaBossfight" to="." method="_win"]
