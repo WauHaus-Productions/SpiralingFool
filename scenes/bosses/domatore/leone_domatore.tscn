@@ -63,6 +63,30 @@ region = Rect2(832, 96, 64, 48)
 atlas = ExtResource("2_gnsm5")
 region = Rect2(896, 96, 64, 48)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_gnsm5"]
+atlas = ExtResource("2_gnsm5")
+region = Rect2(576, 288, 64, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fqdnt"]
+atlas = ExtResource("2_gnsm5")
+region = Rect2(640, 288, 64, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pcd6q"]
+atlas = ExtResource("2_gnsm5")
+region = Rect2(704, 288, 64, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_54tlj"]
+atlas = ExtResource("2_gnsm5")
+region = Rect2(768, 288, 64, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dskxu"]
+atlas = ExtResource("2_gnsm5")
+region = Rect2(832, 288, 64, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jl8o1"]
+atlas = ExtResource("2_gnsm5")
+region = Rect2(896, 288, 64, 48)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_bjvbq"]
 atlas = ExtResource("2_gnsm5")
 region = Rect2(64, 0, 64, 48)
@@ -233,6 +257,29 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_gnsm5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fqdnt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pcd6q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_54tlj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dskxu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jl8o1")
+}],
+"loop": false,
+"name": &"death",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_bjvbq")
 }, {
 "duration": 1.0,
@@ -323,18 +370,21 @@ height = 60.0
 
 [node name="LeoneDomatore" type="CharacterBody2D" unique_id=1910195229 groups=["Boss"]]
 collision_layer = 2
-collision_mask = 0
+collision_mask = 4
 motion_mode = 1
 script = ExtResource("1_21rpb")
-speed = 50.0
+attack_speed = 200.0
+speed = 65.0
 initial_hp = 3000.0
-collision_dmg = 5.0
+collision_dmg_per_second = 100.0
 metadata/_custom_type_script = "uid://bqkn6b2y4pgdd"
 
 [node name="Animations" type="AnimatedSprite2D" parent="." unique_id=812304389]
 sprite_frames = SubResource("SpriteFrames_fqdnt")
-animation = &"run_loop"
+animation = &"death"
 autoplay = "idle"
+frame = 5
+frame_progress = 1.0
 flip_h = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1588107857]

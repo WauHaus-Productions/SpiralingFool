@@ -10,6 +10,7 @@ signal state_changed
 
 @export_group("Attack parameters")
 @export var attack_speed : float = 150.0
+@export var attack_damage : float = 250.0
 
 @onready var animator : AnimatedSprite2D = $Animations
 @onready var timer : Timer = $Timer
@@ -17,10 +18,15 @@ signal state_changed
 enum StateEnum {IDLE, PURSUIT, CHARGE, ATTACK}
 var state : StateEnum = StateEnum.IDLE
 
+var has_hit_with_attack : bool = false
+var base_damage : float
 var attack_direction : Vector2 = Vector2.ZERO
 
 func _ready() -> void:
 	super()
+	
+	# Save base damage value
+	base_damage = collision_dmg_per_second
 	
 	# Connect timer to change states
 	timer.timeout.connect(change_state)
@@ -32,8 +38,23 @@ func _ready() -> void:
 	# Start in IDLE state and start transition to PURSUIT state
 	state = StateEnum.IDLE
 	timer.start(recharge_time)
+	
+	# Activate death animation
+	boss_dead.connect(death_animation)
+
+func _process(delta: float) -> void:
+	if player != null and hurtbox.overlaps_body(player):
+		if (state == StateEnum.ATTACK):
+			# Attack is one-shot
+			if (!has_hit_with_attack):
+				player.take_damage(attack_damage)
+				has_hit_with_attack = true
+		else:
+			player.take_damage(collision_dmg_per_second*delta)
 
 func _physics_process(delta: float) -> void:
+	if (player == null): return
+	
 	if (state == StateEnum.PURSUIT):
 		# Move towards player
 		var dir_to_player : Vector2 = player.global_position - global_position
@@ -61,7 +82,12 @@ func switch_animation() -> void:
 	elif (state == StateEnum.ATTACK):
 		animator.play("attack_jump")
 
+func death_animation():
+	animator.play("death")
+
 func on_animation_finished():
+	if (is_dead): return
+	
 	# Launch the loop of the run and attack_charge animations
 	if (state == StateEnum.PURSUIT):
 		animator.play("run_loop")
@@ -72,10 +98,15 @@ func on_animation_finished():
 		change_state()
 
 func change_state() -> void:
+	if (is_dead): return
+	
 	if (state == StateEnum.IDLE):
 		# Start pursuiting the player for {pursuit_time} seconds
 		state = StateEnum.PURSUIT
 		timer.start(pursuit_time)
+		
+		# Reset collision damage
+		collision_dmg_per_second = base_damage
 	elif (state == StateEnum.PURSUIT):
 		# Start charging the attack for {attack_charge_time} seconds
 		state = StateEnum.CHARGE
@@ -83,7 +114,12 @@ func change_state() -> void:
 	elif (state == StateEnum.CHARGE):
 		# Launch the attack by defining the attack direction
 		state = StateEnum.ATTACK
-		attack_direction = (player.global_position - global_position).normalized()
+		if (player != null):
+			attack_direction = (player.global_position - global_position).normalized()
+		
+		# Reset one-shot attack
+		has_hit_with_attack = false
+		collision_dmg_per_second = 0.0
 		
 	elif (state == StateEnum.ATTACK):
 		# Return idle after the attack

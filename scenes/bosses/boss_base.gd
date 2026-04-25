@@ -16,6 +16,8 @@ signal boss_dead
 signal player_entered_hurt_box(body: Node2D)
 signal player_exited_hurt_box(body: Node2D)
 
+var is_dead : bool = false
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	self.boss_dead.connect(cleanup)
@@ -40,12 +42,15 @@ func _process(delta: float) -> void:
 			player.take_damage(collision_dmg_per_second*delta)
 		
 func take_damage(damage) -> void:
+	if (is_dead): return
+	
 	hp -= damage
 	emit_signal("boss_damaged", damage)
 	var tween = get_tree().create_tween()
 	tween.tween_property(animations, "modulate", Color.WHITE, 0.1).from(Color.CRIMSON)
 	if hp <= 0:
 		boss_dead.emit()
+		is_dead = true
 
 func cleanup():
 	player = null
