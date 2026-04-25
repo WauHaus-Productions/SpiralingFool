@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://cbwrkqyilvf71"]
+
+[ext_resource type="PackedScene" uid="uid://b33rcxtvopwp2" path="res://scenes/game/fights/base_bossfight.tscn" id="1_1hani"]
+[ext_resource type="PackedScene" uid="uid://cf82orwh63h2w" path="res://scenes/bosses/domatore/leone_domatore.tscn" id="2_wyqr6"]
+
+[node name="DomatoreBossfight" unique_id=520531250 instance=ExtResource("1_1hani")]
+enter_transition_duration = 2.0
+
+[node name="Boss" parent="." index="1" unique_id=1910195229 node_paths=PackedStringArray("player") instance=ExtResource("2_wyqr6")]
+position = Vector2(488, 293)
+player = NodePath("../Player")
+
+[node name="Player" parent="." index="2"]
+position = Vector2(-7, 310)
+
+[node name="PlayerEnterPosition" type="Marker2D" parent="." index="5" unique_id=1591738571]
+position = Vector2(150, 135)
+
+[node name="BossEnterPosition" type="Marker2D" parent="." index="6" unique_id=1373024260]
+position = Vector2(321, 135)
+
+[editable path="Boss"]
+[editable path="Player/BallsArea"]

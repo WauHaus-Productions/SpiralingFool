@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://cpcjqe62f1145"]
+
+[ext_resource type="Script" uid="uid://cd1lnop1tscve" path="res://scenes/bosses/domatore/domatore.gd" id="1_8tycp"]
+
+[node name="Domatore" type="CharacterBody2D" unique_id=1660767409]
+motion_mode = 1
+script = ExtResource("1_8tycp")
+speed = 0.0
+initial_hp = 9000.0
+metadata/_custom_type_script = "uid://bqkn6b2y4pgdd"
