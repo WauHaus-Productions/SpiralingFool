@@ -99,3 +99,6 @@ git push
 
 ## Panic Buttons
 - se durante un merge il tuo branch locale si sputtana o non esce mai dai confliti. Relax. Crea un nuovo branch a partire da origin/pippo, se sei stato bravo e prima del merge hai uploadato tutto non avrai nessun problemi. RIprendi il merge da questo nuovo branch che hai creato.
+
+## External assets
+Using world_of_solaria_assets. The folder contains the attributions.
