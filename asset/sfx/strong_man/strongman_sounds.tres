@@ -1,7 +1,7 @@
-[gd_resource type="Resource" script_class="SoundsCollection" load_steps=9 format=3 uid="uid://ci1ddpt6csa3x"]
+[gd_resource type="Resource" script_class="SoundsCollection" format=3 uid="uid://ci1ddpt6csa3x"]
 
-[ext_resource type="Script" path="res://scenes/player/audio_tracks.gd" id="1_7cu8x"]
-[ext_resource type="Script" path="res://scenes/player/audio_track.gd" id="2_h25ol"]
+[ext_resource type="Script" uid="uid://c6q11j7vtq5hx" path="res://scenes/player/audio_tracks.gd" id="1_7cu8x"]
+[ext_resource type="Script" uid="uid://dbi5utc5kf0ho" path="res://scenes/player/audio_track.gd" id="2_h25ol"]
 [ext_resource type="AudioStream" uid="uid://vlr0jgaedrxt" path="res://asset/sfx/strong_man/attack_charge.wav" id="3_k1q4p"]
 [ext_resource type="AudioStream" uid="uid://byfw0ebodpbkx" path="res://asset/sfx/strong_man/attack_slam.wav" id="4_77olk"]
 [ext_resource type="AudioStream" uid="uid://d1e1ks2gksc2x" path="res://asset/sfx/strong_man/strongman_death.wav" id="5_nisuu"]

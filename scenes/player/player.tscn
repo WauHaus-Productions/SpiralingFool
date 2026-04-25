@@ -1,10 +1,12 @@
-[gd_scene load_steps=16 format=3 uid="uid://dn82qtyb5sjxk"]
+[gd_scene format=3 uid="uid://dn82qtyb5sjxk"]
 
-[ext_resource type="Script" path="res://scenes/player/player.gd" id="1_iqo1o"]
+[ext_resource type="Script" uid="uid://cjnypl78dcjqu" path="res://scenes/player/player.gd" id="1_iqo1o"]
+[ext_resource type="Texture2D" uid="uid://c64h0o0udl6x1" path="res://asset/graphic/Waiter.png" id="2_75vfm"]
 [ext_resource type="Texture2D" uid="uid://c3usfowlc3in" path="res://asset/graphic/MC Anim-Sheet.png" id="2_wku6e"]
-[ext_resource type="Script" path="res://scenes/player/sounds.gd" id="3_6rq4q"]
+[ext_resource type="Script" uid="uid://3etif5hgs0sh" path="res://scenes/player/sounds.gd" id="3_6rq4q"]
 [ext_resource type="AudioStream" uid="uid://daohktsf32qrs" path="res://asset/sfx/player/footsteps/footstep5.wav" id="3_e3n83"]
 [ext_resource type="Resource" uid="uid://yjnevhy004ah" path="res://scenes/player/player_sounds.tres" id="5_0fjq6"]
+[ext_resource type="Texture2D" uid="uid://b60jf2xu5c34a" path="res://icon.svg" id="7_0owmy"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ng7hk"]
 atlas = ExtResource("2_wku6e")
@@ -40,6 +42,14 @@ region = Rect2(96, 78, 32, 50)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_5jcw2"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_75vfm")
+}],
+"loop": true,
+"name": &"dash",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_ng7hk")
@@ -79,26 +89,32 @@ animations = [{
 radius = 5.0
 height = 34.0
 
-[node name="Player" type="CharacterBody2D" groups=["Player"]]
+[node name="Player" type="CharacterBody2D" unique_id=20773160 groups=["Player"]]
 position = Vector2(1, 0)
 collision_mask = 14
 script = ExtResource("1_iqo1o")
 initial_hp = 1000.0
 SPEED = 500.0
+DASH_SPEED = 1200.0
 
-[node name="Animations" type="AnimatedSprite2D" parent="."]
+[node name="Animations" type="AnimatedSprite2D" parent="." unique_id=1819835936]
 position = Vector2(-3, -9)
 sprite_frames = SubResource("SpriteFrames_5jcw2")
-animation = &"walk"
+animation = &"idle"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1313103918]
 position = Vector2(-2, -2)
 shape = SubResource("CapsuleShape2D_juipm")
 
-[node name="Sounds" type="AudioStreamPlayer2D" parent="." groups=["Player"]]
+[node name="Sounds" type="AudioStreamPlayer2D" parent="." unique_id=1987167939 groups=["Player"]]
 stream = ExtResource("3_e3n83")
 volume_db = -10.0
 bus = &"Player"
 script = ExtResource("3_6rq4q")
 sound_collection = ExtResource("5_0fjq6")
 track_name = "STOP_MOVING"
+
+[node name="DashCDLabel" type="Sprite2D" parent="." unique_id=438762823]
+position = Vector2(0, -33)
+scale = Vector2(0.0703125, 0.062499996)
+texture = ExtResource("7_0owmy")
