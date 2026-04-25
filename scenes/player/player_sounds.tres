@@ -1,7 +1,7 @@
-[gd_resource type="Resource" script_class="SoundsCollection" load_steps=17 format=3 uid="uid://yjnevhy004ah"]
+[gd_resource type="Resource" script_class="SoundsCollection" format=3 uid="uid://yjnevhy004ah"]
 
-[ext_resource type="Script" path="res://scenes/player/audio_tracks.gd" id="1_0ksck"]
-[ext_resource type="Script" path="res://scenes/player/audio_track.gd" id="2_hd6tv"]
+[ext_resource type="Script" uid="uid://c6q11j7vtq5hx" path="res://scenes/player/audio_tracks.gd" id="1_0ksck"]
+[ext_resource type="Script" uid="uid://dbi5utc5kf0ho" path="res://scenes/player/audio_track.gd" id="2_hd6tv"]
 [ext_resource type="AudioStream" uid="uid://daohktsf32qrs" path="res://asset/sfx/player/footsteps/footstep5.wav" id="3_3tpxy"]
 [ext_resource type="AudioStream" uid="uid://bgbi8m00cfrw2" path="res://asset/sfx/player/dealing_damage/8-bit_damage.wav" id="4_y1cyg"]
 [ext_resource type="AudioStream" uid="uid://6m4v0oxmfscq" path="res://asset/sfx/player/footsteps/footstep1.wav" id="5_dk0r1"]
