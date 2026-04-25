@@ -35,6 +35,10 @@ window/size/resizable=false
 window/size/borderless=true
 window/stretch/mode="viewport"
 
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/ez_dialogue/plugin.cfg")
+
 [input]
 
 ui_left={

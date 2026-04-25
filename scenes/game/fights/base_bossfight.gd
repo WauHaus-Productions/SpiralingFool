@@ -12,6 +12,10 @@ signal lose
 
 @export var enter_transition_duration: float = 1
 
+# DIALOGUES
+@export var boss_name: String
+@export var lore: String
+
 var boss_hp
 var player_hp
 
@@ -26,7 +30,17 @@ func _ready() -> void:
 	player.connect("player_damaged", _on_player_damaged)	
 	player.player_dead.connect(_on_player_dead)
 	create_bounce_tween()
+	
 	pass # Replace with function body.
+
+func dialogue_system(boss_name, lore):
+	var dict = {
+		"name" : boss_name,
+		"lore" : lore
+	}
+	
+	#start_dialogue(dialogue_file, dict, "start")
+
 
 func create_bounce_tween():
 	var tween = get_tree().create_tween()
