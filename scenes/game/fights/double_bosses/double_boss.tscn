@@ -22,17 +22,19 @@ centered = false
 [node name="Ballerina" parent="." unique_id=452242811 node_paths=PackedStringArray("player") instance=ExtResource("1_0l8d5")]
 position = Vector2(555, 343)
 base_velocity = 200.0
-cerchio_dmg_per_sec = 300.0
+max_vel = 2000.0
+acceleration = 1200
+cerchio_dmg_per_sec = 400.0
 player = NodePath("../Player")
 initial_hp = 1500.0
-collision_dmg_per_second = 250.0
+collision_dmg_per_second = 350.0
 
 [node name="Strongman" parent="." unique_id=108159587 node_paths=PackedStringArray("target", "player") instance=ExtResource("2_8a215")]
 position = Vector2(577, 391)
 target = NodePath("../Player")
 player = NodePath("../Player")
 initial_hp = 3000.0
-collision_dmg_per_second = 250.0
+collision_dmg_per_second = 350.0
 
 [node name="Player" parent="." unique_id=1388376296 instance=ExtResource("3_j8mfu")]
 position = Vector2(-10, 303)

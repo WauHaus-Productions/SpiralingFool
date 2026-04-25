@@ -8,11 +8,11 @@
 [node name="Boss" parent="." index="1" unique_id=313489669 node_paths=PackedStringArray("player") instance=ExtResource("2_w6bhu")]
 position = Vector2(550, 303)
 base_velocity = 150.0
-max_vel = 1500.0
+max_vel = 2000.0
 acceleration = 1200
-cerchio_dmg_per_sec = 300.0
+cerchio_dmg_per_sec = 400.0
 player = NodePath("../Player")
-collision_dmg_per_second = 250.0
+collision_dmg_per_second = 350.0
 
 [node name="Player" parent="." index="2"]
 position = Vector2(-7, 310)

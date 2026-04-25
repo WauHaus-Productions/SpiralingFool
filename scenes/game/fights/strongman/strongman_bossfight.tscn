@@ -10,7 +10,7 @@ enter_transition_duration = 2.0
 position = Vector2(550, 303)
 target = NodePath("../Player")
 player = NodePath("../Player")
-collision_dmg_per_second = 250.0
+collision_dmg_per_second = 350.0
 
 [node name="Player" parent="." index="2"]
 position = Vector2(-7, 310)

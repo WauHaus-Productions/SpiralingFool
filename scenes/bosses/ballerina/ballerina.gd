@@ -14,6 +14,7 @@ signal player_hit
 @onready var audio_defeat = $Defeat
 @onready var audio_hit_received = $Hit_received
 @onready var animation_sprites: AnimatedSprite2D = $AnimatedSprite2D
+@onready var dash_total_time = 1
 
 var rng = RandomNumberGenerator.new()
 var curr_velocity
@@ -22,6 +23,7 @@ var ramp_up = 0
 var idle_direction
 var action
 var cerchio
+var dash_time = 0
 
 func get_random_direction() -> Vector2:
 	var random_angle = randf() * TAU # TAU is 2π, representing a full circle
@@ -53,13 +55,13 @@ func _process(delta: float) -> void:
 				var player_direction = (player.global_position - global_position).normalized()
 				var current_direction = velocity.normalized()
 				direction = current_direction.lerp(player_direction, turn_speed * delta).normalized()
-				
-				animation_sprites.rotate((curr_velocity/max_vel) * 0.5)
-				if ramp_up == 1:
+				dash_time = dash_time + delta
+				animation_sprites.rotate((curr_velocity/max_vel) * 0.2)
+				if dash_time < dash_total_time:
 					curr_velocity = curr_velocity + acceleration*delta
 					if curr_velocity > max_vel:
 						ramp_up = 0
-				if ramp_up == 0:
+				else:
 					curr_velocity = curr_velocity - acceleration*2*delta
 					if curr_velocity < base_velocity:
 						idle_direction = get_random_direction()
@@ -78,11 +80,11 @@ func _process(delta: float) -> void:
 func _on_do_something_timeout() -> void:
 	var what_to_do = rng.randf_range(0, 1)
 	if player != null:
-		if what_to_do < dash_prob:
+		if what_to_do < 0.5:
 			direction = (player.global_position - global_position).normalized()
-			curr_velocity = base_velocity*2;
-			ramp_up = 1
+			curr_velocity = base_velocity;
 			self.velocity = direction*curr_velocity
+			dash_time = 0;
 			
 			animation_sprites.play("charge")
 			audio_dash.play()
