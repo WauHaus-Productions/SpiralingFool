@@ -1,17 +1,17 @@
-[gd_scene load_steps=4 format=3 uid="uid://b5i8bqys1nxic"]
+[gd_scene format=3 uid="uid://b5i8bqys1nxic"]
 
 [ext_resource type="PackedScene" uid="uid://c6yjvbaxt8tb" path="res://scenes/game/game.tscn" id="1_a1vbx"]
 [ext_resource type="PackedScene" uid="uid://cyuwgdvsy0pf5" path="res://scenes/game/vicory_screen.tscn" id="2_js3kl"]
 [ext_resource type="PackedScene" uid="uid://bf2mnbmm2fb01" path="res://scenes/game/fights/double_bosses/double_boss.tscn" id="2_vd0pd"]
 
-[node name="DoubleBossLevel" instance=ExtResource("1_a1vbx")]
+[node name="DoubleBossLevel" unique_id=894848432 instance=ExtResource("1_a1vbx")]
 scale = Vector2(4, 4)
 win_screen = ExtResource("2_js3kl")
 
 [node name="Map" parent="." index="0"]
 visible = false
 
-[node name="DoubleBoss" parent="." index="1" instance=ExtResource("2_vd0pd")]
+[node name="DoubleBoss" parent="." index="1" unique_id=2096227121 instance=ExtResource("2_vd0pd")]
 
 [connection signal="lose" from="DoubleBoss" to="." method="_lose"]
 [connection signal="win" from="DoubleBoss" to="." method="_win"]
