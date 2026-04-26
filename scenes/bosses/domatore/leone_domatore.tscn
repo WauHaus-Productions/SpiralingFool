@@ -178,39 +178,21 @@ region = Rect2(512, 192, 64, 48)
 [sub_resource type="SpriteFrames" id="SpriteFrames_fqdnt"]
 animations = [{
 "frames": [{
-"duration": 1.0,
+"duration": 2.0,
 "texture": SubResource("AtlasTexture_38mm0")
 }, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_f18ed")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_38mm0")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_f18ed")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_38mm0")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_f18ed")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_38mm0")
-}, {
-"duration": 1.0,
+"duration": 2.0,
 "texture": SubResource("AtlasTexture_f18ed")
 }],
-"loop": false,
+"loop": true,
 "name": &"attack_charge_loop",
 "speed": 15.0
 }, {
 "frames": [{
-"duration": 1.0,
+"duration": 2.0,
 "texture": SubResource("AtlasTexture_n12oa")
 }, {
-"duration": 1.0,
+"duration": 2.0,
 "texture": SubResource("AtlasTexture_xmnt8")
 }],
 "loop": false,
@@ -218,10 +200,10 @@ animations = [{
 "speed": 15.0
 }, {
 "frames": [{
-"duration": 1.0,
+"duration": 2.0,
 "texture": SubResource("AtlasTexture_ywvsp")
 }, {
-"duration": 1.0,
+"duration": 2.0,
 "texture": SubResource("AtlasTexture_kp4lr")
 }, {
 "duration": 1.0,
@@ -248,7 +230,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_1ypov")
 }, {
-"duration": 1.0,
+"duration": 2.0,
 "texture": SubResource("AtlasTexture_f5uw4")
 }],
 "loop": false,
@@ -256,19 +238,19 @@ animations = [{
 "speed": 15.0
 }, {
 "frames": [{
-"duration": 1.0,
+"duration": 2.0,
 "texture": SubResource("AtlasTexture_gnsm5")
 }, {
-"duration": 1.0,
+"duration": 2.0,
 "texture": SubResource("AtlasTexture_fqdnt")
 }, {
-"duration": 1.0,
+"duration": 2.0,
 "texture": SubResource("AtlasTexture_pcd6q")
 }, {
-"duration": 1.0,
+"duration": 2.0,
 "texture": SubResource("AtlasTexture_54tlj")
 }, {
-"duration": 1.0,
+"duration": 2.0,
 "texture": SubResource("AtlasTexture_dskxu")
 }, {
 "duration": 1.0,
@@ -279,22 +261,22 @@ animations = [{
 "speed": 15.0
 }, {
 "frames": [{
-"duration": 1.0,
+"duration": 4.0,
 "texture": SubResource("AtlasTexture_bjvbq")
 }, {
-"duration": 1.0,
+"duration": 4.0,
 "texture": SubResource("AtlasTexture_mswly")
 }, {
-"duration": 1.0,
+"duration": 4.0,
 "texture": SubResource("AtlasTexture_8h1ya")
 }, {
-"duration": 1.0,
+"duration": 4.0,
 "texture": SubResource("AtlasTexture_ep658")
 }, {
-"duration": 1.0,
+"duration": 4.0,
 "texture": SubResource("AtlasTexture_y64l1")
 }, {
-"duration": 1.0,
+"duration": 4.0,
 "texture": SubResource("AtlasTexture_ifdbu")
 }],
 "loop": true,
@@ -302,16 +284,16 @@ animations = [{
 "speed": 15.0
 }, {
 "frames": [{
-"duration": 1.0,
+"duration": 2.0,
 "texture": SubResource("AtlasTexture_lk34y")
 }, {
-"duration": 1.0,
+"duration": 2.0,
 "texture": SubResource("AtlasTexture_gnhgh")
 }, {
-"duration": 1.0,
+"duration": 2.0,
 "texture": SubResource("AtlasTexture_30aof")
 }, {
-"duration": 1.0,
+"duration": 2.0,
 "texture": SubResource("AtlasTexture_5tj8x")
 }, {
 "duration": 1.0,
@@ -320,10 +302,10 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_m1pbg")
 }, {
-"duration": 1.0,
+"duration": 2.0,
 "texture": SubResource("AtlasTexture_0qfrw")
 }, {
-"duration": 1.0,
+"duration": 2.0,
 "texture": SubResource("AtlasTexture_62rv5")
 }],
 "loop": true,
@@ -331,16 +313,16 @@ animations = [{
 "speed": 15.0
 }, {
 "frames": [{
-"duration": 1.0,
+"duration": 2.0,
 "texture": SubResource("AtlasTexture_mv0ps")
 }, {
-"duration": 1.0,
+"duration": 2.0,
 "texture": SubResource("AtlasTexture_yw3cv")
 }, {
-"duration": 1.0,
+"duration": 2.0,
 "texture": SubResource("AtlasTexture_kfwyd")
 }, {
-"duration": 1.0,
+"duration": 2.0,
 "texture": SubResource("AtlasTexture_5idlx")
 }, {
 "duration": 1.0,
@@ -349,10 +331,10 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_d55s6")
 }, {
-"duration": 1.0,
+"duration": 4.0,
 "texture": SubResource("AtlasTexture_x0wtg")
 }, {
-"duration": 1.0,
+"duration": 2.0,
 "texture": SubResource("AtlasTexture_5mhi6")
 }],
 "loop": false,
@@ -377,15 +359,16 @@ attack_charge_time = 0.8
 recharge_time = 1.0
 attack_speed = 250.0
 attack_damage = 150.0
-speed = 80.0
+speed = 90.0
 initial_hp = 3000.0
 collision_dmg_per_second = 100.0
 metadata/_custom_type_script = "uid://bqkn6b2y4pgdd"
 
 [node name="Animations" type="AnimatedSprite2D" parent="." unique_id=812304389]
 sprite_frames = SubResource("SpriteFrames_fqdnt")
-animation = &"idle"
+animation = &"run_loop"
 autoplay = "idle"
+frame_progress = 0.9236035
 flip_h = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1588107857]

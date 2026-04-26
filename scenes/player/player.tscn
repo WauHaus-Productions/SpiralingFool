@@ -84,7 +84,7 @@ position = Vector2(1, 0)
 collision_mask = 14
 script = ExtResource("1_iqo1o")
 initial_hp = 1000.0
-SPEED = 165.0
+SPEED = 300.0
 
 [node name="Animations" type="AnimatedSprite2D" parent="." unique_id=2144781244]
 position = Vector2(-3, -9)
