@@ -1,7 +1,6 @@
-[gd_scene load_steps=2 format=3 uid="uid://48065bwf2hcu"]
+[gd_scene format=3 uid="uid://48065bwf2hcu"]
 
-[ext_resource type="Script" path="res://scenes/bosses/boss_base.gd" id="1_0fnw3"]
+[ext_resource type="Script" uid="uid://bqkn6b2y4pgdd" path="res://scenes/bosses/boss_base.gd" id="1_0fnw3"]
 
-[node name="BossBase" type="CharacterBody2D" groups=["Boss"]]
+[node name="BossBase" type="CharacterBody2D" unique_id=1571329454 groups=["Boss"]]
 script = ExtResource("1_0fnw3")
-collision_dmg = 10.0

@@ -1,7 +1,7 @@
-[gd_scene load_steps=27 format=3 uid="uid://dye77ts0dxhp2"]
+[gd_scene format=3 uid="uid://dye77ts0dxhp2"]
 
 [ext_resource type="PackedScene" uid="uid://48065bwf2hcu" path="res://scenes/bosses/boss_base.tscn" id="1_5l7ns"]
-[ext_resource type="Script" path="res://scenes/bosses/ballerina/ballerina.gd" id="2_k2wil"]
+[ext_resource type="Script" uid="uid://bkphkrvefuqtv" path="res://scenes/bosses/ballerina/ballerina.gd" id="2_k2wil"]
 [ext_resource type="PackedScene" uid="uid://b2voe3swrvfod" path="res://scenes/bosses/ballerina/cerchio.tscn" id="3_ejb54"]
 [ext_resource type="Texture2D" uid="uid://rp0no1eyp0pw" path="res://asset/graphic/bosses/Ballerina/Rota.png" id="3_stee0"]
 [ext_resource type="Texture2D" uid="uid://ce6gd0m721a4b" path="res://asset/graphic/bosses/Ballerina/Ballerina-Anim Sheet-export.png" id="4_jc4dw"]
@@ -157,51 +157,50 @@ radius = 22.0
 [sub_resource type="CircleShape2D" id="CircleShape2D_vbfxy"]
 radius = 29.0
 
-[node name="Ballerina" instance=ExtResource("1_5l7ns")]
+[node name="Ballerina" unique_id=21108283 instance=ExtResource("1_5l7ns")]
 collision_layer = 2
 collision_mask = 4
 script = ExtResource("2_k2wil")
 cerchio_scene = ExtResource("3_ejb54")
 base_velocity = 0.0
 max_vel = 1100.0
-acceleration = 15
+acceleration = 30
 dash_prob = 0.5
 turn_speed = 1
-cerchio_dmg = 5.0
+cerchio_dmg_per_sec = 0.0
 speed = 110.0
 initial_hp = 3000.0
-collision_dmg = 8.0
 
-[node name="DoSomething" type="Timer" parent="." index="0"]
-wait_time = 3.0
+[node name="DoSomething" type="Timer" parent="." index="0" unique_id=2145144441]
+wait_time = 5.0
 autostart = true
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." index="1"]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." index="1" unique_id=2075413509]
 sprite_frames = SubResource("SpriteFrames_t3gtp")
 animation = &"shoot_windup_right"
 
-[node name="Dash" type="AudioStreamPlayer2D" parent="." index="2"]
+[node name="Dash" type="AudioStreamPlayer2D" parent="." index="2" unique_id=748418878]
 stream = ExtResource("6_c2fx8")
 bus = &"Ballerina"
 
-[node name="Shoot" type="AudioStreamPlayer2D" parent="." index="3"]
+[node name="Shoot" type="AudioStreamPlayer2D" parent="." index="3" unique_id=937251096]
 bus = &"Ballerina"
 
-[node name="Defeat" type="AudioStreamPlayer2D" parent="." index="4"]
+[node name="Defeat" type="AudioStreamPlayer2D" parent="." index="4" unique_id=853909275]
 stream = ExtResource("7_3uel1")
 bus = &"Ballerina"
 
-[node name="Hit_received" type="AudioStreamPlayer2D" parent="." index="5"]
+[node name="Hit_received" type="AudioStreamPlayer2D" parent="." index="5" unique_id=124968835]
 bus = &"Ballerina"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="6"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="6" unique_id=690278294]
 shape = SubResource("CircleShape2D_kwmqf")
 debug_color = Color(0.916435, 0.255634, 0.34489, 0.42)
 
-[node name="Hurtbox" type="Area2D" parent="." index="7"]
+[node name="Hurtbox" type="Area2D" parent="." index="7" unique_id=1302984421]
 collision_layer = 2
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="Hurtbox" index="0"]
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Hurtbox" index="0" unique_id=1650178913]
 shape = SubResource("CircleShape2D_vbfxy")
 debug_color = Color(0.162522, 0.644361, 0, 0.42)
 
