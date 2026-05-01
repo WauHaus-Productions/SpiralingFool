@@ -13,6 +13,7 @@ extends Control
 @export var font_size: int = 16
 @export var state: Dictionary
 @export var writing_velocity: float = 10 # charcaters per second
+@export var pause_tree_if_dialogue_running: bool = false # Pauses all the tree, except this node, if a dialogue is running
 
 var dialogue_finished = false
 var is_writing = false
@@ -32,6 +33,9 @@ func _ready() -> void:
 	dialogue_finished = false
 	is_writing = false
 	dialogue_handler.start_dialogue(dialogue_json, state)
+	
+	pause_tree()
+		
 	pass
 
 func _process(delta: float) -> void:
@@ -48,6 +52,19 @@ func clear_dialogue():
 			button_cache.erase(child)
 			child.queue_free()
 			
+
+func pause_tree():
+	if not pause_tree_if_dialogue_running:
+		return
+		
+	if get_tree().paused:
+		process_mode = Node.PROCESS_MODE_INHERIT
+		get_tree().paused = false
+	else:
+		process_mode = Node.PROCESS_MODE_ALWAYS
+		get_tree().paused = true
+
+
 
 func add_text(text: String):
 	textbox.text = text
@@ -85,17 +102,18 @@ func _on_choice_button_down(choice_id: int):
 		dialogue_handler.next(choice_id)
 
 func _on_ez_dialogue_dialogue_generated(response: DialogueResponse):
-	print(response.eod_reached)
-	if not response.eod_reached:
-		is_writing = true
-		add_text(response.text)
-		if not response.choices.is_empty():
-			for i in response.choices.size():
-				add_choice(response.choices[i], i)
-	else:
+	if (response.eod_reached) or (response.is_empty()):
 		print('dialog finished')
 		button_cache = []
 		dialogue_finished = true
 		$CanvasLayer.visible = false
 		self.visible = false
+		pause_tree()
 		dialogue_is_over.emit(self)
+
+	else:
+		is_writing = true
+		add_text(response.text)
+		if not response.choices.is_empty():
+			for i in response.choices.size():
+				add_choice(response.choices[i], i)
