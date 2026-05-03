@@ -54,8 +54,13 @@ region_rect = Rect2(0, 0, 160, 64)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fecjm"]
 bg_color = Color(0.494118, 0.419608, 0.494118, 1)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fycgq"]
-bg_color = Color(0.764706, 0.764706, 0.764706, 1)
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_4h4ca"]
+texture = ExtResource("2_miug5")
+texture_margin_left = 13.554861
+texture_margin_top = 13.392299
+texture_margin_right = 13.006615
+texture_margin_bottom = 13.272745
+region_rect = Rect2(7.980736, 7.9077225, 143.94754, 48.17508)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_5dt3x"]
 texture_margin_left = 6.0
@@ -142,7 +147,7 @@ Label/colors/font_outline_color = Color(0, 0, 0, 1)
 Label/font_sizes/font_size = 24
 Label/fonts/font = ExtResource("1_47lgb")
 Panel/styles/panel = SubResource("StyleBoxFlat_fecjm")
-PanelContainer/styles/panel = SubResource("StyleBoxFlat_fycgq")
+PanelContainer/styles/panel = SubResource("StyleBoxTexture_4h4ca")
 PopupPanel/styles/panel = SubResource("StyleBoxTexture_5dt3x")
 ProgressBar/styles/background = SubResource("StyleBoxTexture_jec8w")
 ProgressBar/styles/fill = SubResource("StyleBoxTexture_j46if")

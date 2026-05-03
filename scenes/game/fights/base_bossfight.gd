@@ -26,7 +26,12 @@ func _ready() -> void:
 	player.connect("player_damaged", _on_player_damaged)	
 	player.player_dead.connect(_on_player_dead)
 	create_bounce_tween()
+	
 	pass # Replace with function body.
+
+	
+	#start_dialogue(dialogue_file, dict, "start")
+
 
 func create_bounce_tween():
 	var tween = get_tree().create_tween()
@@ -54,3 +59,4 @@ func _on_boss_dead():
 func _on_player_dead():
 	print("PLAYER IS DEAD")
 	emit_signal("lose")
+	

@@ -3,15 +3,23 @@
 [ext_resource type="PackedScene" uid="uid://c6yjvbaxt8tb" path="res://scenes/game/game.tscn" id="1_a1vbx"]
 [ext_resource type="PackedScene" uid="uid://cyuwgdvsy0pf5" path="res://scenes/game/vicory_screen.tscn" id="2_js3kl"]
 [ext_resource type="PackedScene" uid="uid://bf2mnbmm2fb01" path="res://scenes/game/fights/double_bosses/double_boss.tscn" id="2_vd0pd"]
+[ext_resource type="JSON" path="res://dialogues/boss_fight.json" id="3_87q0i"]
 
 [node name="DoubleBossLevel" unique_id=894848432 instance=ExtResource("1_a1vbx")]
 scale = Vector2(4, 4)
 win_screen = ExtResource("2_js3kl")
 
-[node name="Map" parent="." index="0"]
+[node name="Map" parent="." index="0" unique_id=1395381691]
 visible = false
 
 [node name="DoubleBoss" parent="." index="1" unique_id=2096227121 instance=ExtResource("2_vd0pd")]
+
+[node name="DialogueSystem" parent="." index="9" unique_id=1875785294]
+dialogue_json = ExtResource("3_87q0i")
+state = {
+"lore": "you managed to beat us alone. Now it's time to prove you are really worthy of this company! Let's see what you can really do!",
+"name": "Ballerina and my name is strongman"
+}
 
 [connection signal="lose" from="DoubleBoss" to="." method="_lose"]
 [connection signal="win" from="DoubleBoss" to="." method="_win"]

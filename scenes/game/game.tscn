@@ -1,13 +1,14 @@
-[gd_scene load_steps=11 format=3 uid="uid://c6yjvbaxt8tb"]
+[gd_scene format=3 uid="uid://c6yjvbaxt8tb"]
 
-[ext_resource type="Script" path="res://scenes/game/game.gd" id="1_0u2hm"]
+[ext_resource type="Script" uid="uid://d0kmrb480c153" path="res://scenes/game/game.gd" id="1_0u2hm"]
 [ext_resource type="PackedScene" uid="uid://d1sdkri0tjfcq" path="res://scenes/map/map.tscn" id="1_jcveh"]
-[ext_resource type="Script" path="res://scenes/menu/base_menu.gd" id="2_qw0xe"]
+[ext_resource type="Script" uid="uid://bs673awy0ypia" path="res://scenes/menu/base_menu.gd" id="2_qw0xe"]
 [ext_resource type="PackedScene" uid="uid://cnulwif8u1373" path="res://scenes/game/base_end_screen.tscn" id="3_li1fu"]
 [ext_resource type="PackedScene" uid="uid://gpah4ea7go8w" path="res://scenes/menu/buttons/ButtonSceneChange/button_scene_change.tscn" id="3_ov6s2"]
 [ext_resource type="AudioStream" uid="uid://dyn6v43j42t86" path="res://asset/sfx/UI/start_whip.wav" id="6_2tk80"]
 [ext_resource type="AudioStream" uid="uid://bq6upffg6edtd" path="res://asset/music/in_game_music.wav" id="7_vmx5s"]
 [ext_resource type="Texture2D" uid="uid://fsau5087qvli" path="res://asset/graphic/TENDA.png" id="8_v1jdo"]
+[ext_resource type="PackedScene" uid="uid://1a6a6aknwba2" path="res://dialogues/dialogue_system.tscn" id="9_2a8rs"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_ow6f8"]
 font_size = 128
@@ -17,44 +18,50 @@ _bundled = {
 "conn_count": 1,
 "conns": PackedInt32Array(6, 0, 22, 21, 2, 0, 0),
 "editable_instances": [],
+"id_paths": [],
 "names": PackedStringArray("VictoryScreen", "layout_mode", "anchors_preset", "anchor_right", "anchor_bottom", "grow_horizontal", "grow_vertical", "script", "Control", "Sprite2D", "HBoxContainer", "offset_right", "offset_bottom", "alignment", "VBoxContainer", "Label", "text", "label_settings", "horizontal_alignment", "ButtonSceneChange", "AudioStreamPlayer2D", "_on_next_scene", "scene_button_pressed"),
 "node_count": 8,
+"node_ids": PackedInt32Array(),
 "node_paths": [],
 "nodes": PackedInt32Array(-1, -1, 8, 0, -1, 7, 1, 0, 2, 1, 3, 2, 4, 2, 5, 3, 6, 3, 7, 4, 0, 0, 0, 9, 9, -1, 0, 0, 0, 0, 10, 10, -1, 4, 1, 5, 11, 6, 12, 7, 13, 8, 0, 2, 0, 14, 14, -1, 2, 1, 3, 13, 8, 0, 3, 0, 15, 15, -1, 4, 1, 3, 16, 9, 17, 10, 18, 8, 0, 3, 0, 10, 10, -1, 2, 1, 3, 13, 8, 0, 5, 0, 2147483647, 19, 11, 2, 1, 3, 16, 12, 0, 0, 0, 20, 20, -1, 0, 0),
 "variants": [3, 15, 1.0, 2, ExtResource("2_qw0xe"), 0, 1920.0, 1080.0, 1, "You Win", SubResource("LabelSettings_ow6f8"), ExtResource("3_ov6s2"), "Main Menu"],
 "version": 3
 }
 
-[node name="game" type="Node2D" groups=["level"]]
+[node name="game" type="Node2D" unique_id=2010199571 groups=["level"]]
 script = ExtResource("1_0u2hm")
 win_screen = SubResource("PackedScene_6hhc7")
 lose_screen = ExtResource("3_li1fu")
 transition_duration = 5.0
 
-[node name="Map" parent="." instance=ExtResource("1_jcveh")]
+[node name="Map" parent="." unique_id=1395381691 instance=ExtResource("1_jcveh")]
 
-[node name="StartingWhip" type="AudioStreamPlayer2D" parent="."]
+[node name="StartingWhip" type="AudioStreamPlayer2D" parent="." unique_id=1093295750]
 stream = ExtResource("6_2tk80")
 bus = &"Sfx"
 
-[node name="LevelMusic" type="AudioStreamPlayer2D" parent="."]
+[node name="LevelMusic" type="AudioStreamPlayer2D" parent="." unique_id=923436029]
+process_mode = 3
 stream = ExtResource("7_vmx5s")
 bus = &"Music"
 
-[node name="CurtainRx" type="Sprite2D" parent="."]
+[node name="CurtainRx" type="Sprite2D" parent="." unique_id=1932837535]
 position = Vector2(240, 135)
 texture = ExtResource("8_v1jdo")
 
-[node name="CurtainLx" type="Sprite2D" parent="."]
+[node name="CurtainLx" type="Sprite2D" parent="." unique_id=620370679]
 position = Vector2(240, 135)
 scale = Vector2(-1, 1)
 texture = ExtResource("8_v1jdo")
 
-[node name="MarkerRxOpen" type="Marker2D" parent="."]
+[node name="MarkerRxOpen" type="Marker2D" parent="." unique_id=1057972786]
 position = Vector2(720, 135)
 
-[node name="MarkerLxOpen" type="Marker2D" parent="."]
+[node name="MarkerLxOpen" type="Marker2D" parent="." unique_id=2061614949]
 position = Vector2(-240, 135)
 
-[node name="MarkerClosed" type="Marker2D" parent="."]
+[node name="MarkerClosed" type="Marker2D" parent="." unique_id=1499141853]
 position = Vector2(240, 135)
+
+[node name="DialogueSystem" parent="." unique_id=1875785294 instance=ExtResource("9_2a8rs")]
+pause_tree_if_dialogue_running = true
