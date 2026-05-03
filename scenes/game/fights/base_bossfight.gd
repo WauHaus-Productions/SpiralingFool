@@ -12,10 +12,6 @@ signal lose
 
 @export var enter_transition_duration: float = 1
 
-# DIALOGUES
-@export var boss_name: String
-@export var lore: String
-
 var boss_hp
 var player_hp
 
@@ -33,11 +29,6 @@ func _ready() -> void:
 	
 	pass # Replace with function body.
 
-func dialogue_system(boss_name, lore):
-	var dict = {
-		"name" : boss_name,
-		"lore" : lore
-	}
 	
 	#start_dialogue(dialogue_file, dict, "start")
 
@@ -68,3 +59,4 @@ func _on_boss_dead():
 func _on_player_dead():
 	print("PLAYER IS DEAD")
 	emit_signal("lose")
+	

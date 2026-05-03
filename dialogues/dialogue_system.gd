@@ -23,35 +23,18 @@ signal dialogue_is_over(dialogue_system)
 
 var button_cache: Array[DialogueButton] = []
 
-func _ready() -> void:
-	$CanvasLayer/PanelContainer.theme = self.theme
-	textbox.label_settings.font_size = font_size
-	
-	# CONNECT TO HANDLER SIGNALS
-	dialogue_handler.dialogue_generated.connect(_on_ez_dialogue_dialogue_generated)
-	
-	dialogue_finished = false
-	is_writing = false
-	dialogue_handler.start_dialogue(dialogue_json, state)
-	
-	pause_tree()
+#############################################
+## UTILITIES FUNCTIONS FOR OTHER SCENES 
+#############################################
+func hide_all():
+	for child in get_children():
+		if "visible" in child:
+			child.visible = false
 		
-	pass
-
-func _process(delta: float) -> void:
-	if textbox.visible_characters < len(textbox.text):
-		animate_label(delta)
-	else:
-		for button in button_cache:
-			button.visible = true
-			
-func clear_dialogue():
-	textbox.text = ""
-	for child in button_cache:
-		if child is Button:
-			button_cache.erase(child)
-			child.queue_free()
-			
+func show_all():
+	for child in get_children():
+		if "visible" in child:
+			child.visible = true
 
 func pause_tree():
 	if not pause_tree_if_dialogue_running:
@@ -64,7 +47,36 @@ func pause_tree():
 		process_mode = Node.PROCESS_MODE_ALWAYS
 		get_tree().paused = true
 
+#############################################
+## INTERNAL FUNCTIONS
+#############################################
+func _ready() -> void:
+	$CanvasLayer/PanelContainer.theme = self.theme
+	textbox.label_settings.font_size = font_size
+	
+	# CONNECT TO HANDLER SIGNALS
+	dialogue_handler.dialogue_generated.connect(_on_ez_dialogue_dialogue_generated)
+	
+	dialogue_finished = false
+	is_writing = false
+	dialogue_handler.start_dialogue(dialogue_json, state)
+			
+	pass
 
+func _process(delta: float) -> void:
+	if textbox.visible_characters < len(textbox.text):
+		animate_label(delta)
+	else:
+		for button in button_cache:
+			button.visible = true
+		
+			
+func clear_dialogue():
+	textbox.text = ""
+	for child in button_cache:
+		if child is Button:
+			button_cache.erase(child)
+			child.queue_free()
 
 func add_text(text: String):
 	textbox.text = text

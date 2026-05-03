@@ -3,7 +3,6 @@
 [ext_resource type="Script" uid="uid://d2ctk7y4xw0pv" path="res://addons/ez_dialogue/ez_dialogue_node.gd" id="1_1eml3"]
 [ext_resource type="Theme" uid="uid://dq3fh7pdv4230" path="res://asset/graphic/UI/ui_custom_style.tres" id="1_wwosp"]
 [ext_resource type="Script" uid="uid://dmi6kfffbvu27" path="res://dialogues/dialogue_system.gd" id="1_xnnjv"]
-[ext_resource type="JSON" path="res://dialogues/boss_fight.json" id="2_v4n8t"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_v4n8t"]
 font_size = 40
@@ -17,12 +16,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_wwosp")
 script = ExtResource("1_xnnjv")
-dialogue_json = ExtResource("2_v4n8t")
 font_size = 24
-state = {
-"lore": "I'm the strongman! I'm strong! I like gyms! Aaaaargh",
-"name": "strongman"
-}
 writing_velocity = 20.0
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1971168310]
@@ -38,10 +32,11 @@ offset_bottom = 1036.0
 layout_mode = 2
 
 [node name="text" type="Label" parent="CanvasLayer/PanelContainer/VBoxContainer" unique_id=1640581911]
+custom_minimum_size = Vector2(10, 10)
 layout_mode = 2
-size_flags_horizontal = 0
-text = "testtesteteteteteteszdtwtsdts"
+text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
 label_settings = SubResource("LabelSettings_v4n8t")
+autowrap_mode = 2
 
 [node name="EzDialogue" type="Node" parent="." unique_id=240790981]
 script = ExtResource("1_1eml3")
