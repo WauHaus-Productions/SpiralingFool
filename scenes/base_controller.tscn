@@ -1,13 +1,13 @@
-[gd_scene load_steps=7 format=3 uid="uid://b2vdv4tsbkrow"]
+[gd_scene format=3 uid="uid://b2vdv4tsbkrow"]
 
 [ext_resource type="PackedScene" uid="uid://b2kq5erlme841" path="res://scenes/menu/settings_menu/settings_menu.tscn" id="1_dvgid"]
-[ext_resource type="Script" path="res://scenes/controller/scene_dock.gd" id="2_jptrm"]
-[ext_resource type="Script" path="res://scenes/controller/menu_music.gd" id="2_syw7r"]
+[ext_resource type="Script" uid="uid://dmhpte1juaj6q" path="res://scenes/controller/scene_dock.gd" id="2_jptrm"]
+[ext_resource type="Script" uid="uid://11gn2n5pek7f" path="res://scenes/controller/menu_music.gd" id="2_syw7r"]
 [ext_resource type="PackedScene" uid="uid://c72tadrko6hg0" path="res://scenes/menu/buttons/ButtonWrapper/button_wrapper.tscn" id="4_q6dp4"]
 [ext_resource type="PackedScene" uid="uid://cnlm6ho48juqv" path="res://scenes/menu/main_menu/main_menu.tscn" id="4_xg1l1"]
 [ext_resource type="PackedScene" uid="uid://c31dprby61dbw" path="res://scenes/menu/buttons/ButtonSettings/settings_button.tscn" id="5_dhblv"]
 
-[node name="BaseController" type="Control"]
+[node name="BaseController" type="Control" unique_id=802217053]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -15,25 +15,25 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="SettingsMenu" parent="." instance=ExtResource("1_dvgid")]
+[node name="SettingsMenu" parent="." unique_id=1698534823 instance=ExtResource("1_dvgid")]
 process_mode = 0
 visible = false
 layout_mode = 1
 
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=794750498]
 script = ExtResource("2_syw7r")
 
-[node name="SceneDock" type="Node" parent="."]
+[node name="SceneDock" type="Node" parent="." unique_id=1383032237]
 script = ExtResource("2_jptrm")
 first_scene = ExtResource("4_xg1l1")
 settings_button = ExtResource("5_dhblv")
 
-[node name="ButtonWrapper" parent="." instance=ExtResource("4_q6dp4")]
+[node name="ButtonWrapper" parent="." unique_id=1081554861 instance=ExtResource("4_q6dp4")]
 layout_mode = 0
 offset_right = 200.0
 offset_bottom = 100.0
 
-[node name="MainMenu" parent="." instance=ExtResource("4_xg1l1")]
+[node name="MainMenu" parent="." unique_id=1568591659 instance=ExtResource("4_xg1l1")]
 layout_mode = 1
 offset_left = -121.0
 offset_top = -104.0
