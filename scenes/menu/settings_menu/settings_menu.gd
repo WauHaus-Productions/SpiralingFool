@@ -16,35 +16,40 @@ func _ready() -> void:
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	pass
 
 func _on_settings_switched() -> void:
-	#get_tree().paused = !visible
 	_switch_visibility(!visible)
 	emit_signal("settings_switched")
 
-func _switch_visibility(visible : bool):
+func _switch_visibility(visible: bool):
+	get_tree().paused = false
+	var tween: Tween
 	if visible:
-		_move_down()
+		tween = _move_down()
 	else:
-		_move_up()
+		tween = _move_up()
 			
 	self.visible = visible
+	await tween.finished
+	get_tree().paused = visible
 
 		
-func _move_down():
+func _move_down() -> Tween:
 	var canvas_layer = self.get_child(0)
 	var tween = get_tree().create_tween()
 	tween.tween_property(canvas_layer, "offset", $MarkerDown.position, 0.5).set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_OUT)
+	return tween
 
 
-func _move_up():
+func _move_up() -> Tween:
 	var canvas_layer = self.get_child(0)
 	var tween = get_tree().create_tween()
 	tween.tween_property(canvas_layer, "offset", $MarkerUp.position, 0.5).set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_OUT)
+	return tween
 
 			
-func _on_next_scene(game_scene: PackedScene) -> void:	
+func _on_next_scene(game_scene: PackedScene) -> void:
 	super._on_next_scene(game_scene)
 	_on_settings_switched()

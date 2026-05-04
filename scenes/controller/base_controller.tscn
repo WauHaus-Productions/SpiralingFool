@@ -18,6 +18,7 @@ layout_mode = 1
 stream = ExtResource("2_ocdo0")
 bus = &"Music"
 script = ExtResource("3_5vsym")
+process_mode = 3
 
 [node name="SceneDock" type="Node" parent="." unique_id=414225209]
 script = ExtResource("3_u4nt1")
