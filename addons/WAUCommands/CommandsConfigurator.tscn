@@ -1,0 +1,104 @@
+[gd_scene format=3 uid="uid://bc1k7ant8hn1r"]
+
+[ext_resource type="Script" uid="uid://d4b2sdwt143ra" path="res://addons/WAUCommands/command_config_dock.gd" id="1_w5cfj"]
+
+[node name="CommandsConfigurator" type="Control" unique_id=1451103480]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 12.0
+offset_top = 9.0
+offset_right = 12.0
+offset_bottom = 9.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_w5cfj")
+
+[node name="PopupPanel" type="ConfirmationDialog" parent="." unique_id=1636493050]
+oversampling_override = 1.0
+title = "Load Successful"
+initial_position = 2
+size = Vector2i(360, 158)
+exclusive = false
+ok_button_text = "Reload"
+dialog_text = "Custom commands loaded successfully. To correctly see them in the editor RESTART IT."
+dialog_autowrap = true
+
+[node name="SaveButton" type="Button" parent="." unique_id=894025238]
+layout_mode = 0
+offset_left = 417.0
+offset_top = 325.0
+offset_right = 724.0
+offset_bottom = 401.0
+text = "Save Commnads"
+
+[node name="LoadButton" type="Button" parent="." unique_id=1254137109]
+layout_mode = 0
+offset_left = 1193.0
+offset_top = 323.0
+offset_right = 1500.0
+offset_bottom = 399.0
+text = "Load Commnads"
+
+[node name="SaveOnlyCustomButton" type="CheckButton" parent="." unique_id=597217600]
+layout_mode = 0
+offset_left = 374.0
+offset_top = 245.0
+offset_right = 767.0
+offset_bottom = 319.0
+text = "Save only custom commands (excludes ui_*) "
+
+[node name="LoadOnlyCustomButton" type="CheckButton" parent="." unique_id=661665574]
+layout_mode = 0
+offset_left = 1145.0
+offset_top = 247.0
+offset_right = 1540.0
+offset_bottom = 321.0
+text = "Load only custom commands (excludes ui_*) "
+
+[node name="AllSettingsPath" type="LineEdit" parent="." unique_id=1864484292]
+layout_mode = 0
+offset_left = 388.0
+offset_top = 131.0
+offset_right = 1533.0
+offset_bottom = 162.0
+placeholder_text = "res://addons/WAUCommands/saved_commands/all_commands.tres"
+
+[node name="Label" type="Label" parent="AllSettingsPath" unique_id=809504555]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -1144.0
+offset_top = -48.5
+offset_right = -1019.0
+offset_bottom = -25.5
+grow_horizontal = 0
+grow_vertical = 2
+text = "All settings Path"
+
+[node name="CustomSettingsPath" type="LineEdit" parent="." unique_id=1966800798]
+layout_mode = 0
+offset_left = 387.0
+offset_top = 205.0
+offset_right = 1529.0
+offset_bottom = 236.0
+placeholder_text = "res://addons/WAUCommands/saved_commands/custom_commands.tres"
+
+[node name="Label2" type="Label" parent="CustomSettingsPath" unique_id=1765365752]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -1139.0
+offset_top = -45.5
+offset_right = -974.0
+offset_bottom = -22.5
+grow_horizontal = 0
+grow_vertical = 2
+text = "Custom settings Path"

@@ -1,0 +1,82 @@
+[gd_resource type="Resource" script_class="CommandsConfig" format=3 uid="uid://1ulaijfx4s7q"]
+
+[ext_resource type="Script" uid="uid://cc5dn1cccmpoo" path="res://addons/WAUCommands/CommandsConfig.gd" id="1_7mg5e"]
+
+[sub_resource type="InputEventKey" id="InputEventKey_7mg5e"]
+device = -1
+physical_keycode = 83
+unicode = 115
+
+[sub_resource type="InputEventKey" id="InputEventKey_8b1t0"]
+device = -1
+physical_keycode = 4194322
+
+[sub_resource type="InputEventJoypadButton" id="InputEventJoypadButton_1qhoh"]
+device = -1
+button_index = 12
+
+[sub_resource type="InputEventJoypadMotion" id="InputEventJoypadMotion_njny4"]
+device = -1
+axis = 1
+axis_value = 1.0
+
+[sub_resource type="InputEventKey" id="InputEventKey_8fe2d"]
+device = -1
+physical_keycode = 65
+unicode = 97
+
+[sub_resource type="InputEventKey" id="InputEventKey_uknbx"]
+device = -1
+physical_keycode = 4194319
+
+[sub_resource type="InputEventJoypadButton" id="InputEventJoypadButton_gho1e"]
+device = -1
+button_index = 13
+
+[sub_resource type="InputEventJoypadMotion" id="InputEventJoypadMotion_ykf25"]
+device = -1
+axis_value = -1.0
+
+[sub_resource type="InputEventKey" id="InputEventKey_8c5n2"]
+device = -1
+physical_keycode = 68
+unicode = 100
+
+[sub_resource type="InputEventKey" id="InputEventKey_5vmci"]
+device = -1
+physical_keycode = 4194321
+
+[sub_resource type="InputEventJoypadButton" id="InputEventJoypadButton_jefy6"]
+device = -1
+button_index = 14
+
+[sub_resource type="InputEventJoypadMotion" id="InputEventJoypadMotion_fgk1l"]
+device = -1
+axis_value = 1.0
+
+[sub_resource type="InputEventKey" id="InputEventKey_a30x3"]
+device = -1
+physical_keycode = 87
+unicode = 119
+
+[sub_resource type="InputEventKey" id="InputEventKey_uhgng"]
+device = -1
+physical_keycode = 4194320
+
+[sub_resource type="InputEventJoypadButton" id="InputEventJoypadButton_shjgt"]
+device = -1
+button_index = 11
+
+[sub_resource type="InputEventJoypadMotion" id="InputEventJoypadMotion_s5n65"]
+device = -1
+axis = 1
+axis_value = -1.0
+
+[resource]
+script = ExtResource("1_7mg5e")
+controls = Dictionary[String, Array]({
+"wau_down": Array[InputEvent]([SubResource("InputEventKey_7mg5e"), SubResource("InputEventKey_8b1t0"), SubResource("InputEventJoypadButton_1qhoh"), SubResource("InputEventJoypadMotion_njny4")]),
+"wau_left": Array[InputEvent]([SubResource("InputEventKey_8fe2d"), SubResource("InputEventKey_uknbx"), SubResource("InputEventJoypadButton_gho1e"), SubResource("InputEventJoypadMotion_ykf25")]),
+"wau_right": Array[InputEvent]([SubResource("InputEventKey_8c5n2"), SubResource("InputEventKey_5vmci"), SubResource("InputEventJoypadButton_jefy6"), SubResource("InputEventJoypadMotion_fgk1l")]),
+"wau_up": Array[InputEvent]([SubResource("InputEventKey_a30x3"), SubResource("InputEventKey_uhgng"), SubResource("InputEventJoypadButton_shjgt"), SubResource("InputEventJoypadMotion_s5n65")])
+})

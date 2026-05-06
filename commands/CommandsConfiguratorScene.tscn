@@ -1,0 +1,45 @@
+[gd_scene format=3 uid="uid://climl0mvfa25o"]
+
+[ext_resource type="Script" uid="uid://be8t767blnvoi" path="res://commands/commands_configurator_old.gd" id="1_3jmva"]
+
+[node name="CommandsConfigurator" type="Control" unique_id=1451103480]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_3jmva")
+custom_commands_location = "res://commands/saved_custom_commands/custom_commands.tres"
+
+[node name="SaveButton" type="Button" parent="." unique_id=894025238]
+layout_mode = 0
+offset_left = 375.0
+offset_top = 962.0
+offset_right = 682.0
+offset_bottom = 1038.0
+text = "Save Commnads"
+
+[node name="LoadButton" type="Button" parent="." unique_id=1254137109]
+layout_mode = 0
+offset_left = 1151.0
+offset_top = 960.0
+offset_right = 1458.0
+offset_bottom = 1036.0
+text = "Load Commnads"
+
+[node name="SaveOnlyCustomButton" type="CheckButton" parent="." unique_id=597217600]
+layout_mode = 0
+offset_left = 332.0
+offset_top = 882.0
+offset_right = 725.0
+offset_bottom = 956.0
+text = "Save only custom commands (excludes ui_*) "
+
+[node name="LoadOnlyCustomButton" type="CheckButton" parent="." unique_id=661665574]
+layout_mode = 0
+offset_left = 1103.0
+offset_top = 884.0
+offset_right = 1496.0
+offset_bottom = 958.0
+text = "Load only custom commands (excludes ui_*) "

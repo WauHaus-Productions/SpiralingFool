@@ -1,0 +1,39 @@
+[gd_scene format=3 uid="uid://cgg5d85nbefrl"]
+
+[ext_resource type="Script" uid="uid://m3fdibravf6v" path="res://commands/mobile_ui.gd" id="1_rttqt"]
+
+[node name="MobileUi" type="Control" unique_id=616313561]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_rttqt")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1345957503]
+layer = 500
+
+[node name="Button" type="Button" parent="CanvasLayer" unique_id=1766420544]
+offset_left = 142.0
+offset_top = 763.0
+offset_right = 206.0
+offset_bottom = 827.0
+
+[node name="Button2" type="Button" parent="CanvasLayer" unique_id=1309847913]
+offset_left = 222.0
+offset_top = 834.0
+offset_right = 286.0
+offset_bottom = 898.0
+
+[node name="Button3" type="Button" parent="CanvasLayer" unique_id=442664831]
+offset_left = 142.0
+offset_top = 907.0
+offset_right = 206.0
+offset_bottom = 971.0
+
+[node name="Button4" type="Button" parent="CanvasLayer" unique_id=23270086]
+offset_left = 64.0
+offset_top = 834.0
+offset_right = 128.0
+offset_bottom = 898.0
